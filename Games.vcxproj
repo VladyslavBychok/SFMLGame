@@ -144,7 +144,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Delay.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MakeThrow.cpp" />
+    <ClCompile Include="OneBall.cpp" />
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Delay.h" />
+    <ClInclude Include="MakeThrow.h" />
+    <ClInclude Include="OneBall.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
