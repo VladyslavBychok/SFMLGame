@@ -4,22 +4,6 @@
 sf::Texture OneBall::text;
 sf::Sprite OneBall::sprite;
 
-sf::Vector2f getCursorPosFromHero(sf::Vector2f heroPos, const sf::RenderWindow& wnd) noexcept(true) {
-
-	auto pos = sf::Vector2f(sf::Mouse::getPosition(wnd));
-
-	pos.x /= 5.f;
-	pos.y /= 5.f;
-	return pos - heroPos;
-}
-
-void OneBall::calcDir(sf::Vector2f mousePos) noexcept(true) {
-
-	auto len = sqrtf(mousePos.x * mousePos.x + mousePos.y * mousePos.y);
-	auto apn = sf::Vector2f(mousePos.x / len, mousePos.y / len);
-	dir = apn;
-}
-
 OneBall::OneBall(sf::Vector2f curr, const sf::RenderWindow& wnd) noexcept(false) {
 
 	if (static bool isInit = false; !isInit) {
@@ -36,6 +20,24 @@ OneBall::OneBall(sf::Vector2f curr, const sf::RenderWindow& wnd) noexcept(false)
 
 	calcDir(getCursorPosFromHero(curr, wnd) - sf::Vector2f(16.f, 16.f));
 }
+
+sf::Vector2f getCursorPosFromHero(sf::Vector2f heroPos, const sf::RenderWindow& wnd) noexcept(true) {
+
+	auto pos = sf::Vector2f(sf::Mouse::getPosition(wnd));
+
+	pos.x /= 5.f;
+	pos.y /= 5.f;
+	return pos - heroPos;
+}
+
+void OneBall::calcDir(sf::Vector2f mousePos) noexcept(true) {
+
+	auto len = sqrtf(mousePos.x * mousePos.x + mousePos.y * mousePos.y);
+	auto apn = sf::Vector2f(mousePos.x / len, mousePos.y / len);
+	dir = apn;
+}
+
+
 
 void OneBall::drawAndUpdate(sf::RenderWindow& wnd) noexcept(true) {
 

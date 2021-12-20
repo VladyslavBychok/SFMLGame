@@ -5,6 +5,10 @@
 
 Player::Player() : x_{ 0.f }, y_{ 0.f }{}
 
+void Player::setScalee(float factorX, float factorY) {
+	sprite_.setScale(factorX, factorY);
+}
+
 void Player::create(const std::string  addressTexture, sf::IntRect size) noexcept(false) {
 
 	texture_.loadFromFile(addressTexture);

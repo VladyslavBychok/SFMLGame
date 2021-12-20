@@ -9,7 +9,7 @@ enum class Direction {
 	RIGHT
 };
 
-class Player final {
+class Player {
 
 public:
 	Player();
@@ -21,6 +21,8 @@ public:
 	Player& operator=(const Player&) = default; // copy assignment operator
 
 	void create(const std::string  addressTexture, sf::IntRect size) noexcept(false);
+
+	void setScalee(float factorX, float factorY);
 
 	void draw(sf::RenderWindow& window) noexcept(false);
 
